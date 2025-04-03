@@ -23,4 +23,3 @@ class MercadolivreSpider(scrapy.Spider):
                 'reviews_rating_number': product.css('span.poly-reviews__rating::text').get(),
                 'reviews_amount': product.css('span.poly-reviews__total::text').get()
                 }
-
