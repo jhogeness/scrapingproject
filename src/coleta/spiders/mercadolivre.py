@@ -17,7 +17,7 @@ class MercadolivreSpider(scrapy.Spider):
 
             yield{
                 'brand': product.css('span.poly-component__brand::text').get(),
-                'name': product.css('a.poly-component__title::text').get(),
+                'title': product.css('a.poly-component__title::text').get(),
                 'old_price': prices[0] if len(prices) > 0 else None,
                 'old_price_cents': cents[0] if len(cents) > 0 else None,
                 'new_price': prices[1] if len(prices) > 1 else None,
