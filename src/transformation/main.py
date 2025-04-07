@@ -39,8 +39,11 @@ df.drop(columns=['old_price_brl', 'old_price_cents', 'new_price_brl', 'new_price
 
 # Insert into the database
 with Session(engine) as session:
+    session.query(Sneaker).delete()
+    session.commit()
     for _, row in df.iterrows():
         sneaker = Sneaker(
+            brand=row['brand'],
             name=row['name'],
             reviews_amount=row['reviews_amount'],
             reviews_rating_number=row['reviews_rating_number'],
